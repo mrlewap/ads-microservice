@@ -8,6 +8,8 @@ end
 Sequel::Model.plugin :auto_validations
 Sequel::Model.plugin :prepared_statements
 Sequel::Model.plugin :subclasses unless ENV['RACK_ENV'] == 'development'
+Sequel::Model.plugin :json_serializer
+Sequel::Model.plugin :timestamps, force: true, update_on_create: true
 
 unless defined?(Unreloader)
   require 'rack/unreloader'
